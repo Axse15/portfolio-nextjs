@@ -79,7 +79,7 @@ export default function About() {
             transition={{ duration: 0.8 }}
           >
             <h3 className="text-theme text-4xl font-black">
-              Hi, I'm{" "}
+              Hi, I&apos;m{" "}
               <span className="bg-gradient-to-r from-cyan-300 via-blue-400 to-indigo-500 bg-clip-text text-transparent">
                 {profile.name}
               </span>

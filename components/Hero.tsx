@@ -47,7 +47,7 @@ export default function Hero() {
           </motion.div>
 
           <h2 className="text-theme-muted mt-8 text-2xl font-light">
-            Hello, I'm
+            Hello, I&apos;m
           </h2>
 
           <motion.h1
