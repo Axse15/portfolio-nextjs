@@ -1,37 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-
-const timeline = [
-  {
-    year: "2021",
-    title: "Lulus SMK",
-    company: "SMK",
-    description:
-      "Menyelesaikan pendidikan di SMK dan mulai tertarik mendalami dunia teknologi informasi serta pengembangan perangkat lunak.",
-  },
-  {
-    year: "2022",
-    title: "Memulai Kuliah",
-    company: "Universitas Bina Sarana Informatika",
-    description:
-      "Menempuh pendidikan Program Studi Teknologi Informasi dan mulai mempelajari pemrograman web, database, serta pengembangan aplikasi.",
-  },
-  {
-    year: "2024",
-    title: "Membangun Berbagai Project",
-    company: "Personal Project",
-    description:
-      "Mengembangkan berbagai aplikasi menggunakan Laravel, Next.js, Flutter, MySQL, dan teknologi modern lainnya untuk meningkatkan kemampuan Full Stack Development.",
-  },
-  {
-    year: "2025",
-    title: "Fokus Full Stack Developer",
-    company: "Portfolio & Freelance",
-    description:
-      "Menyelesaikan berbagai project portfolio, memperdalam backend dan frontend, serta membangun aplikasi yang scalable dan modern.",
-  },
-];
+import { timeline } from "@/data/timeline";
 
 export default function Timeline() {
   return (
