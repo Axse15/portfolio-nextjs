@@ -9,7 +9,7 @@ export const skills: Skill[] = [
   },
   {
     name: "PHP",
-    icon: "/icons/Php.svg",
+    icon: "/icons/PHP.svg",
     category: "Backend",
     level: 90,
   },
@@ -27,7 +27,7 @@ export const skills: Skill[] = [
   },
   {
     name: "TypeScript",
-    icon: "/icons/Typescript.svg",
+    icon: "/icons/TypeScript.svg",
     category: "Frontend",
     level: 85,
   },
@@ -63,7 +63,7 @@ export const skills: Skill[] = [
   },
   {
     name: "MySQL",
-    icon: "/icons/Mysql.svg",
+    icon: "/icons/MySQL.svg",
     category: "Database",
     level: 90,
   },
