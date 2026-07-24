@@ -8,11 +8,15 @@ const categories = ["Frontend", "Backend", "Mobile", "Database", "Tools"];
 
 export default function Skills() {
   return (
-    <section id="skills" className="relative overflow-hidden px-6 py-32">
+    <section
+      id="skills"
+      className="relative overflow-hidden px-5 py-20 sm:px-6 sm:py-24 lg:px-8 lg:py-32"
+    >
       {/* Background */}
 
-      <div className="absolute -left-32 top-0 h-96 w-96 rounded-full bg-cyan-500/10 blur-[120px]" />
-      <div className="absolute -right-32 bottom-0 h-96 w-96 rounded-full bg-blue-500/10 blur-[120px]" />
+      <div className="absolute -left-20 top-0 h-72 w-72 rounded-full bg-cyan-500/10 blur-[90px] sm:-left-32 sm:h-96 sm:w-96 sm:blur-[120px]" />
+
+      <div className="absolute -right-20 bottom-0 h-72 w-72 rounded-full bg-blue-500/10 blur-[90px] sm:-right-32 sm:h-96 sm:w-96 sm:blur-[120px]" />
 
       <div className="mx-auto max-w-7xl">
         {/* Heading */}
@@ -24,11 +28,11 @@ export default function Skills() {
           transition={{ duration: 0.7 }}
           className="text-center"
         >
-          <p className="mt-5 text-5xl font-black tracking-[4px] text-cyan-500 dark:text-cyan-300 lg:text-6xl">
+          <p className="mt-4 text-4xl font-black tracking-[2px] text-cyan-500 dark:text-cyan-300 sm:mt-5 sm:text-5xl lg:text-6xl lg:tracking-[4px]">
             Skills
           </p>
 
-          <p className="text-theme-muted mx-auto mt-6 max-w-3xl text-lg leading-8">
+          <p className="text-theme-muted mx-auto mt-5 max-w-3xl text-base leading-8 sm:mt-6 sm:text-lg">
             Beberapa teknologi yang saya gunakan dalam membangun aplikasi web,
             mobile dan backend yang modern, scalable serta mudah di-maintain.
           </p>
@@ -36,11 +40,11 @@ export default function Skills() {
 
         {/* Category */}
 
-        <div className="mt-12 flex flex-wrap justify-center gap-3">
+        <div className="mt-10 flex flex-wrap justify-center gap-3 sm:mt-12">
           {categories.map((category) => (
             <span
               key={category}
-              className="card-theme border-theme inline-flex items-center justify-center rounded-full border px-5 py-2 text-sm text-theme-muted transition-all duration-300 hover:border-cyan-400 hover:text-cyan-500 dark:hover:text-cyan-300"
+              className="card-theme border-theme inline-flex items-center justify-center rounded-full border px-4 py-2 text-sm text-theme-muted transition-all duration-300 hover:border-cyan-400 hover:text-cyan-500 dark:hover:text-cyan-300 sm:px-5"
             >
               {category}
             </span>
@@ -49,7 +53,7 @@ export default function Skills() {
 
         {/* Skills Grid */}
 
-        <div className="mt-20 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="mt-14 grid gap-6 sm:mt-16 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8 xl:mt-20 xl:grid-cols-4">
           {skills.map((skill, index) => (
             <motion.div
               key={skill.name}
@@ -71,28 +75,28 @@ export default function Skills() {
               whileHover={{
                 y: -8,
               }}
-              className="glass card-theme hover-card group rounded-3xl p-7"
+              className="glass card-theme group rounded-3xl p-6 sm:p-7"
             >
               {/* Header */}
 
               <div className="flex items-start justify-between">
-                <div className="card-theme border-theme flex h-16 w-16 items-center justify-center rounded-2xl border">
+                <div className="card-theme border-theme flex h-14 w-14 items-center justify-center rounded-2xl border sm:h-16 sm:w-16">
                   <Image
                     src={skill.icon}
                     alt={skill.name}
-                    width={45}
-                    height={45}
+                    width={40}
+                    height={40}
                   />
                 </div>
 
-                <span className="card-theme border-theme inline-flex min-w-[90px] items-center justify-center rounded-full border px-3 py-1 text-center text-xs font-medium text-theme-muted">
+                <span className="card-theme border-theme inline-flex min-w-[80px] items-center justify-center rounded-full border px-3 py-1 text-center text-xs font-medium text-theme-muted sm:min-w-[90px]">
                   {skill.category}
                 </span>
               </div>
 
               {/* Name */}
 
-              <h3 className="text-theme mt-6 text-2xl font-bold">
+              <h3 className="text-theme mt-5 text-xl font-bold sm:mt-6 sm:text-2xl">
                 {skill.name}
               </h3>
 
@@ -103,6 +107,7 @@ export default function Skills() {
                 scalable dan mudah di-maintain.
               </p>
 
+              {/* Progress */}
               {/* Progress */}
 
               <div className="mt-8">

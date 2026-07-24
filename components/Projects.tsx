@@ -22,14 +22,19 @@ export default function Projects() {
   );
 
   return (
-    <section id="projects" className="relative overflow-hidden py-32 px-6">
+    <section
+      id="projects"
+      className="relative overflow-hidden px-5 py-20 sm:px-6 sm:py-24 lg:px-8 lg:py-32"
+    >
       {/* Background */}
 
-      <div className="absolute -left-40 top-0 h-96 w-96 rounded-full bg-cyan-500/10 blur-[120px]" />
-      <div className="absolute -right-40 bottom-0 h-96 w-96 rounded-full bg-blue-500/10 blur-[120px]" />
+      <div className="absolute -left-20 top-0 h-72 w-72 rounded-full bg-cyan-500/10 blur-[90px] sm:-left-32 sm:h-96 sm:w-96 sm:blur-[120px]" />
+
+      <div className="absolute -right-20 bottom-0 h-72 w-72 rounded-full bg-blue-500/10 blur-[90px] sm:-right-32 sm:h-96 sm:w-96 sm:blur-[120px]" />
 
       <div className="mx-auto max-w-7xl">
         {/* Heading */}
+
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -37,17 +42,19 @@ export default function Projects() {
           transition={{ duration: 0.7 }}
           className="text-center"
         >
-          <p className="text-5xl font-black tracking-[4px] text-cyan-500 dark:text-cyan-300 lg:text-6xl">
+          <p className="text-4xl font-black tracking-[2px] text-cyan-500 dark:text-cyan-300 sm:text-5xl lg:text-6xl lg:tracking-[4px]">
             Project Saya
           </p>
 
-          <p className="text-theme-muted mx-auto mt-6 max-w-3xl text-lg leading-8">
+          <p className="text-theme-muted mx-auto mt-5 max-w-3xl text-base leading-8 sm:mt-6 sm:text-lg">
             Berikut beberapa project yang pernah saya bangun menggunakan
             Laravel, Next.js, Flutter, Firebase, TypeScript, MySQL, Bootstrap
             dan teknologi modern lainnya.
           </p>
         </motion.div>
+
         {/* Featured */}
+
         <motion.div
           initial={{
             opacity: 0,
@@ -63,22 +70,22 @@ export default function Projects() {
           transition={{
             duration: 0.7,
           }}
-          className="glass card-theme mt-24 overflow-hidden rounded-3xl"
+          className="glass card-theme mt-14 overflow-hidden rounded-3xl sm:mt-20 lg:mt-24"
         >
           <div className="grid lg:grid-cols-2">
             {/* IMAGE */}
 
-            <div className="group relative h-[420px] overflow-hidden">
+            <div className="group relative h-64 overflow-hidden sm:h-80 md:h-96 lg:h-full lg:min-h-[420px]">
               <Image
                 src={featuredProject.image}
                 alt={featuredProject.title}
                 fill
-                className="object-cover transition duration-700 group-hover:scale-105"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
 
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent dark:from-slate-950 dark:via-slate-950/20" />
 
-              <div className="absolute right-6 top-6 rounded-full bg-yellow-500 px-4 py-2 text-sm font-semibold text-white shadow-lg">
+              <div className="absolute right-4 top-4 rounded-full bg-yellow-500 px-3 py-2 text-xs font-semibold text-white shadow-lg sm:right-6 sm:top-6 sm:px-4 sm:text-sm">
                 <div className="flex items-center gap-2">
                   <FaStar />
                   Featured
@@ -92,7 +99,7 @@ export default function Projects() {
                 whileHover={{
                   opacity: 1,
                 }}
-                className="absolute inset-0 flex items-center justify-center bg-black/40 backdrop-blur-sm"
+                className="absolute inset-0 hidden items-center justify-center bg-black/40 backdrop-blur-sm lg:flex"
               >
                 <div className="glass card-theme border-theme flex items-center gap-3 rounded-full border px-6 py-3 text-theme">
                   View Project
@@ -100,11 +107,8 @@ export default function Projects() {
                 </div>
               </motion.div>
             </div>
-
             {/* CONTENT */}
-            {/* CONTENT */}
-
-            <div className="flex flex-col justify-center p-10 lg:p-14">
+            <div className="flex flex-col justify-center p-6 sm:p-8 lg:p-14">
               <div className="flex items-center gap-3">
                 <FaCircle
                   className={`text-xs ${
@@ -125,15 +129,15 @@ export default function Projects() {
                 </span>
               </div>
 
-              <h3 className="mt-6 text-4xl font-black text-theme">
+              <h3 className="text-theme mt-5 text-3xl font-black sm:mt-6 sm:text-4xl">
                 {featuredProject.title}
               </h3>
 
-              <p className="text-theme-muted mt-6 leading-8">
+              <p className="text-theme-muted mt-5 text-base leading-8 sm:mt-6">
                 {featuredProject.description}
               </p>
 
-              <div className="border-theme my-8 border-t" />
+              <div className="border-theme my-6 border-t sm:my-8" />
 
               <div className="flex flex-wrap gap-3">
                 {featuredProject.technologies.map((tech) => (
@@ -146,12 +150,12 @@ export default function Projects() {
                 ))}
               </div>
 
-              <div className="mt-10 flex flex-wrap gap-4">
+              <div className="mt-8 flex flex-col gap-4 sm:mt-10 sm:flex-row sm:flex-wrap">
                 <Link
                   href={featuredProject.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="glass card-theme border-theme flex items-center gap-3 rounded-2xl border px-7 py-4 font-semibold text-theme transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400"
+                  className="glass card-theme border-theme flex items-center justify-center gap-3 rounded-2xl border px-7 py-4 font-semibold text-theme transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400"
                 >
                   <FaGithub />
                   Source Code
@@ -161,7 +165,7 @@ export default function Projects() {
                   href={featuredProject.demo}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 px-7 py-4 font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/30"
+                  className="flex items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 px-7 py-4 font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/30"
                 >
                   <FaExternalLinkAlt />
                   Live Demo
@@ -170,7 +174,8 @@ export default function Projects() {
             </div>
           </div>
         </motion.div>
-        {/* Other Projects */} {/* Other Projects */}
+        {/* Other Projects */}
+
         <motion.div
           initial={{
             opacity: 0,
@@ -186,11 +191,13 @@ export default function Projects() {
           transition={{
             delay: 0.2,
           }}
-          className="mt-16"
+          className="mt-14 sm:mt-16"
         >
-          <h3 className="text-theme mb-10 text-3xl font-bold">More Projects</h3>
+          <h3 className="text-theme mb-8 text-2xl font-bold sm:mb-10 sm:text-3xl">
+            More Projects
+          </h3>
 
-          <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2 lg:gap-8 xl:grid-cols-3">
             {otherProjects.map((project, index) => (
               <motion.div
                 key={project.title}
@@ -211,16 +218,16 @@ export default function Projects() {
                 whileHover={{
                   y: -8,
                 }}
-                className="glass card-theme hover-card group overflow-hidden rounded-3xl"
+                className="glass card-theme group overflow-hidden rounded-3xl"
               >
                 {/* Image */}
 
-                <div className="relative h-56 overflow-hidden">
+                <div className="relative h-52 overflow-hidden sm:h-56">
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
-                    className="object-cover transition duration-700 group-hover:scale-105"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
 
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent dark:from-slate-950 dark:via-slate-950/20" />
@@ -240,12 +247,12 @@ export default function Projects() {
 
                 {/* Content */}
 
-                <div className="p-6">
-                  <h4 className="text-theme text-2xl font-bold">
+                <div className="p-5 sm:p-6">
+                  <h4 className="text-theme text-xl font-bold sm:text-2xl">
                     {project.title}
                   </h4>
 
-                  <p className="text-theme-muted mt-4 line-clamp-3 leading-7">
+                  <p className="text-theme-muted mt-4 line-clamp-3 text-sm leading-7 sm:text-base">
                     {project.description}
                   </p>
 
@@ -266,7 +273,7 @@ export default function Projects() {
                     )}
                   </div>
 
-                  <div className="mt-8 flex items-center justify-between">
+                  <div className="mt-8 flex items-center justify-between gap-3">
                     <Link
                       href={project.github}
                       target="_blank"
@@ -282,7 +289,7 @@ export default function Projects() {
                       href={project.demo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 px-5 py-3 text-sm font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/30"
+                      className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 px-4 py-3 text-sm font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/30 sm:px-5"
                     >
                       Live Demo
                       <FaExternalLinkAlt className="text-xs" />

@@ -7,7 +7,10 @@ import { profile } from "@/data/profile";
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-32 px-6">
+    <section
+      id="contact"
+      className="px-5 py-20 sm:px-6 sm:py-24 lg:px-8 lg:py-32"
+    >
       <div className="mx-auto max-w-7xl">
         {/* Heading */}
 
@@ -17,19 +20,24 @@ export default function Contact() {
           viewport={{ once: true }}
           className="text-center"
         >
-          <p className="mt-5 text-5xl font-black tracking-[4px] text-cyan-400 lg:text-6xl">
+          <p className="mt-4 text-4xl font-black tracking-[2px] text-cyan-400 sm:mt-5 sm:text-5xl lg:text-6xl lg:tracking-[4px]">
             Contact
           </p>
         </motion.div>
 
-        <div className="mt-20 grid gap-12 lg:grid-cols-2">
+        <div className="mt-14 grid gap-8 sm:mt-16 lg:mt-20 lg:grid-cols-2 lg:gap-12">
           {/* Contact Info */}
 
-          <div className="space-y-6">
-            <div className="glass card-theme rounded-3xl p-8">
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="glass card-theme rounded-3xl p-6 sm:p-8">
               <h3 className="text-theme text-2xl font-bold">Get In Touch</h3>
 
-              <p className="text-theme-muted mt-5 leading-8">
+              <p className="text-theme-muted mt-5 text-base leading-8">
                 Jika tertarik bekerja sama atau berdiskusi mengenai project,
                 silakan hubungi saya melalui email atau media sosial di bawah
                 ini.
@@ -37,50 +45,58 @@ export default function Contact() {
 
               <div className="mt-8 space-y-6">
                 <div className="flex items-center gap-4">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-full bg-cyan-500/10">
+                  <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-cyan-500/10">
                     <FaEnvelope className="text-cyan-500 dark:text-cyan-300" />
                   </div>
 
-                  <span className="text-theme font-medium">
+                  <span className="text-theme break-all font-medium">
                     {profile.email}
                   </span>
                 </div>
 
-                <div className="flex gap-5 pt-2">
+                {/* Social */}
+
+                <div className="flex flex-wrap gap-4 pt-2">
                   <a
                     href={profile.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex h-12 w-12 items-center justify-center rounded-full border border-cyan-500/20 transition-all duration-300 hover:scale-110 hover:border-cyan-400 hover:bg-cyan-500/10"
+                    className="card-theme flex h-12 w-12 items-center justify-center rounded-full border border-cyan-500/20 transition-all duration-300 hover:scale-110 hover:border-cyan-400 hover:bg-cyan-500/10"
                   >
-                    <FaGithub className="text-theme text-2xl hover:text-cyan-500 dark:hover:text-cyan-300" />
+                    <FaGithub className="text-theme text-2xl transition-colors hover:text-cyan-500 dark:hover:text-cyan-300" />
                   </a>
 
                   <a
                     href={profile.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex h-12 w-12 items-center justify-center rounded-full border border-cyan-500/20 transition-all duration-300 hover:scale-110 hover:border-cyan-400 hover:bg-cyan-500/10"
+                    className="card-theme flex h-12 w-12 items-center justify-center rounded-full border border-cyan-500/20 transition-all duration-300 hover:scale-110 hover:border-cyan-400 hover:bg-cyan-500/10"
                   >
-                    <FaLinkedin className="text-theme text-2xl hover:text-cyan-500 dark:hover:text-cyan-300" />
+                    <FaLinkedin className="text-theme text-2xl transition-colors hover:text-cyan-500 dark:hover:text-cyan-300" />
                   </a>
 
                   <a
                     href={profile.instagram}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex h-12 w-12 items-center justify-center rounded-full border border-cyan-500/20 transition-all duration-300 hover:scale-110 hover:border-cyan-400 hover:bg-cyan-500/10"
+                    className="card-theme flex h-12 w-12 items-center justify-center rounded-full border border-cyan-500/20 transition-all duration-300 hover:scale-110 hover:border-cyan-400 hover:bg-cyan-500/10"
                   >
-                    <FaInstagram className="text-theme text-2xl hover:text-cyan-500 dark:hover:text-cyan-300" />
+                    <FaInstagram className="text-theme text-2xl transition-colors hover:text-cyan-500 dark:hover:text-cyan-300" />
                   </a>
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Contact Form */}
 
-          <form className="glass card-theme space-y-6 rounded-3xl p-8">
+          <motion.form
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="glass card-theme space-y-5 rounded-3xl p-6 sm:space-y-6 sm:p-8"
+          >
             <input
               type="text"
               placeholder="Your Name"
@@ -105,7 +121,7 @@ export default function Contact() {
             >
               Send Message
             </button>
-          </form>
+          </motion.form>
         </div>
       </div>
     </section>
