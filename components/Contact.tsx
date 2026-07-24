@@ -1,11 +1,68 @@
 "use client";
 
+import { useState } from "react";
+
 import { motion } from "framer-motion";
 import { FaEnvelope, FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 import { profile } from "@/data/profile";
 
 export default function Contact() {
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    setLoading(true);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+
+        headers: {
+          "Content-Type": "application/json",
+        },
+
+        body: JSON.stringify(form),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        alert("✅ Pesan berhasil dikirim.");
+
+        setForm({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        alert(data.message);
+      }
+    } catch (error) {
+      console.error(error);
+
+      alert("❌ Terjadi kesalahan.");
+    }
+
+    setLoading(false);
+  };
   return (
     <section
       id="contact"
@@ -95,30 +152,55 @@ export default function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            onSubmit={handleSubmit}
             className="glass card-theme space-y-5 rounded-3xl p-6 sm:space-y-6 sm:p-8"
           >
             <input
               type="text"
+              name="name"
               placeholder="Your Name"
+              value={form.name}
+              onChange={handleChange}
               className="input-theme w-full rounded-xl p-4"
+              required
             />
 
             <input
               type="email"
+              name="email"
               placeholder="Email Address"
+              value={form.email}
+              onChange={handleChange}
               className="input-theme w-full rounded-xl p-4"
+              required
+            />
+
+            <input
+              type="text"
+              name="subject"
+              placeholder="Subject"
+              value={form.subject}
+              onChange={handleChange}
+              className="input-theme w-full rounded-xl p-4"
+              required
             />
 
             <textarea
               rows={6}
+              name="message"
               placeholder="Write your message..."
+              value={form.message}
+              onChange={handleChange}
               className="input-theme w-full rounded-xl p-4"
+              required
             />
 
             <button
               type="submit"
+              disabled={loading}
               className="w-full rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 py-4 font-semibold text-white shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-cyan-500/30"
             >
+              {loading ? "Sending..." : "Send Message"}
               Send Message
             </button>
           </motion.form>
